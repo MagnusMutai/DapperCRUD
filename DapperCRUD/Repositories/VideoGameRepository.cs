@@ -16,7 +16,9 @@ namespace DapperCRUD.Repositories
         public async Task<List<VideoGame>> GetAllAsync()
         {
             using var connection = GetConnection();
-            var videoGames = await connection.QueryAsync<VideoGame>("SELECT * FROM VIDEOGAMES");
+            var videoGames = await connection
+                .QueryAsync<VideoGame>("SELECT * FROM VIDEOGAMES");
+            return videoGames.ToList();
         }
 
         private SqlConnection GetConnection() 
