@@ -16,6 +16,7 @@ namespace DapperCRUD.Controllers
             _videoGameRepository = videoGameRepository;
         }
 
+        [HttpGet]
         public async Task<ActionResult<List<VideoGame>>> GetAllAsync()
         {
             var videoGames = await _videoGameRepository.GetAllAsync();
